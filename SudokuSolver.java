@@ -144,8 +144,8 @@ public class SudokuSolver implements Runnable {
 			}
 		}
 	}
-	private static boolean noSubsquareConflicts(int[][] board, int col, int row, int num){
-		int beginRow = row - (row % side); 
+	private static boolean noSubsquareConflicts(int[][] board, int col, int row, int num){	// Check the subsquares for conflicts
+		int beginRow = row - (row % side); 	
 		int beginCol = col - (col % side);
 
 		for (int i = 0; i < side; i++)		
@@ -155,14 +155,14 @@ public class SudokuSolver implements Runnable {
 		return true;
 	}
 
-	private static boolean noRowConflicts(int[][] board, int row, int num){
+	private static boolean noRowConflicts(int[][] board, int row, int num){			// Check the rows for conflicts
 		for (int i = 0; i < 9; i++)	// Check the 9 rows
 			if (board[i][row] == num)
 				return false;		
 		return true;
 	}
 
-	private static boolean noColumnConflicts(int[][] board, int col, int num){
+	private static boolean noColumnConflicts(int[][] board, int col, int num){		// Check the columns for conflicts
 		for (int i = 0; i < 9; i++)	// Check the 9 columns
 			if (board[col][i] == num)
 				return false;
