@@ -16,8 +16,8 @@ public class SudokuThreadPool{
 		long maximum = 0;		// keep track of average, maximum, and minimum
 		long minimum = 0;
 
-		for (int i = 0; i < 10; i++){		// For loop for how many puzzles we have 
-			sg.board = sg.nextBoard(49);	// Set to easy difficulty and every puzzle			
+		for (int i = 0; i < 10; i++){					// For loop for how many puzzles we have 
+			sg.board = sg.nextBoard(49);				// Set to easy difficulty and every puzzle			
 			Runnable worker = new SudokuSolver(sg.board, 0, i, 1); // in each iteration is easy
 			Runnable worker2 =  new SudokuSolver(sg.board, 0, i, 2);
 			Runnable worker3 =  new SudokuSolver(sg.board, 0, i, 3);
@@ -50,7 +50,7 @@ public class SudokuThreadPool{
 			System.out.println((endTime - startTime) + " nanoseconds for Puzzle number " + (i+1));	// How long a puzzle
 
 			if (i == 9){					// Print the average in a way that doesn't appear 
-				average = average/10;		// between Sudoku rows
+				average = average/10;			// between Sudoku rows
 				System.out.println("Average: " + average);	
 				System.out.println("Maximum: " + maximum);
 				System.out.println("Minimum: " + minimum); 
